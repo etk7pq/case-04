@@ -8,7 +8,9 @@ class SurveySubmission(BaseModel):
     age: int = Field(..., ge=13, le=120)
     consent: bool = Field(..., description="Must be true to accept")
     rating: int = Field(..., ge=1, le=5)
-    comments: Optional[str] = Field(None, max_length=1000)
+    comments: Optional[str] = Field(None, max_length=1000),
+    user_agent: Optional[str] = Field(None),
+    submission_id: Optional[str] = Field(None)
   
 
     @validator("comments")
